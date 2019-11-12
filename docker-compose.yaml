@@ -1,0 +1,29 @@
+version: '3.7'
+services:
+  nginx:
+    image: nginx
+    links:
+      - php
+    volumes:
+      - ./public:/var/www/site/public
+      - ./docker/site.conf:/etc/nginx/conf.d/default.conf
+      - ./docker/logs:/var/log
+    ports:
+      - 8080:80
+  php:
+    build:
+      context: ./docker/build/php
+    links:
+      - pgsql
+    volumes:
+      - ./:/var/www/site
+    working_dir: /var/www/site
+  pgsql:
+    image: postgres
+    ports:
+      - 5434:5432
+  node:
+    image: node
+    volumes:
+      - .:/var/www
+    working_dir: /var/www
