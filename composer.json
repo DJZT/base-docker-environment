@@ -1,0 +1,13 @@
+{
+    "name": "djzt/base-docker-environment",
+    "description": "Base docker template",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Pochepko Stanislav",
+            "email": "DJZT44@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
